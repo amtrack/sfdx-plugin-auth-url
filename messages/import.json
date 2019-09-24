@@ -1,0 +1,3 @@
+{
+  "commandDescription": "Authorize an org.\nThis is a wrapper for sfdx force:auth:sfdxurl:store without requiring a sfdxAuthUrl file."
+}
