@@ -21,7 +21,7 @@ Note: pbcopy/pbpaste is available on MacOS only. However you can copy/paste manu
    Add the following to your build script
 
    ```console
-   npx sfdx-plugin-auth-url auth-url:import -d devhub "${SFDX_AUTH_URL_DEVHUB}"
+   npx sfdx-plugin-auth-url auth-url:import -d -a devhub "${SFDX_AUTH_URL_DEVHUB}"
    ```
 
 2. Quickly sharing orgs with colleagues
@@ -34,5 +34,5 @@ Note: pbcopy/pbpaste is available on MacOS only. However you can copy/paste manu
    Then your colleague can import it using
 
    ```console
-   npx sfdx-plugin-auth-url auth-url:import -s myorg "$(pbpaste)"
+   npx sfdx-plugin-auth-url auth-url:import -a myorg "$(pbpaste)"
    ```
