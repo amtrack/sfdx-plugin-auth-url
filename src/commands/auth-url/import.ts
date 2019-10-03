@@ -3,11 +3,9 @@ import { Messages } from '@salesforce/core';
 import { AnyJson } from '@salesforce/ts-types';
 import { promises as fsPromises } from 'fs';
 import { promisify } from 'util';
-const os = require('os');
-const path = require('path');
 const child_process = require('child_process');
+const tmp = require('tmp');
 const exec = promisify(child_process.exec);
-const rimraf = promisify(require('rimraf'));
 
 // Initialize Messages with the current plugin directory
 Messages.importMessagesDirectory(__dirname);
@@ -46,12 +44,11 @@ export default class ImportOrgUsingAuthUrlCommand extends SfdxCommand {
     })
   };
 
-  protected tempDir;
+  protected tempObj;
 
   public async run(): Promise<AnyJson> {
-    this.tempDir = await fsPromises.mkdtemp(os.tmpdir());
-    const sfdxAuthUrlFile = path.join(this.tempDir, 'sfdxAuthUrl.txt');
-    // TODO: implement using STDIN
+    this.tempObj = tmp.fileSync();
+    const sfdxAuthUrlFile = this.tempObj.name;
     const sfdxAuthUrl = this.args.sfdxAuthUrl;
     await fsPromises.writeFile(sfdxAuthUrlFile, sfdxAuthUrl);
 
@@ -70,8 +67,8 @@ export default class ImportOrgUsingAuthUrlCommand extends SfdxCommand {
   }
 
   public async finally() {
-    if (this.tempDir) {
-      rimraf(this.tempDir);
+    if (this.tempObj) {
+      this.tempObj.removeCallback();
     }
   }
 }
