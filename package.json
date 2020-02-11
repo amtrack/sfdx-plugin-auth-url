@@ -23,7 +23,7 @@
     "@salesforce/dev-config": "1.5.0",
     "@types/chai": "4.2.8",
     "@types/mocha": "7.0.1",
-    "@types/node": "13.7.0",
+    "@types/node": "13.7.1",
     "chai": "^4",
     "globby": "11.0.0",
     "mocha": "7.0.1",
