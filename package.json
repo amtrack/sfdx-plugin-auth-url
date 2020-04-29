@@ -13,7 +13,7 @@
     "@oclif/errors": "^1",
     "@salesforce/command": "3.0.0",
     "@salesforce/core": "2.2.0",
-    "tmp": "^0.1.0",
+    "tmp": "^0.2.1",
     "tslib": "^1"
   },
   "devDependencies": {
