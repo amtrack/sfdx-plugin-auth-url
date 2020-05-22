@@ -333,6 +333,18 @@
   dependencies:
     fancy-test "^1.4.3"
 
+"@salesforce/bunyan@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@salesforce/bunyan/-/bunyan-2.0.0.tgz#8dbe377f2cf7d35348a23260416fee15adba5f97"
+  integrity sha512-5hq+HWQSeymuygl3i9ehlQo3XWrlBE+A+QzmpDaoK37op4u9M+SBUbXfOW0IABOQCg+JmfQPocSMV74hRoqU9w==
+  dependencies:
+    dayjs "^1.8.16"
+    dayjs-plugin-utc "^0.1.2"
+  optionalDependencies:
+    dtrace-provider "~0.6"
+    mv "~2"
+    safe-json-stringify "~1"
+
 "@salesforce/command@3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@salesforce/command/-/command-3.0.0.tgz#b0511a445387c83006a10cd8234d2fa88b7cf9b8"
@@ -349,16 +361,15 @@
     chalk "^2.4.2"
     cli-ux "^4.9.3"
 
-"@salesforce/core@2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@salesforce/core/-/core-2.2.0.tgz#bd9dc306a1ba6764a9faba3c4fc08a90bdb4e229"
-  integrity sha512-306YK6KxvdfpMokInrbl3i/9Onc4tob67R/BP87ltRw1pEBoIdch0wa3nZCPYYS4RiObEo7uK5Ysq0+sTtU8DQ==
+"@salesforce/core@2.4.1":
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/@salesforce/core/-/core-2.4.1.tgz#d9f4351953ffaeb474814a4c34f6aedbc9f266cc"
+  integrity sha512-j8sJYIo4meaD/R0f5oOD6+GOYIQK3GVh+HwHyy4QMi8El3e9PIplLIWpYx6oJ+wdYmHOtLawXOXh/5adM0S4xg==
   dependencies:
+    "@salesforce/bunyan" "^2.0.0"
     "@salesforce/kit" "^1.0.0"
-    "@salesforce/ts-sinon" "^1.0.0"
     "@salesforce/ts-types" "^1.0.0"
     "@types/jsforce" "1.9.2"
-    bunyan-sfdx-no-dtrace "1.8.2"
     debug "^3.1.0"
     jsen "0.6.6"
     jsforce "1.9.3"
@@ -1023,6 +1034,16 @@ dashdash@^1.12.0:
   integrity sha1-hTz6D3y+L+1d4gMmuN1YEDX24vA=
   dependencies:
     assert-plus "^1.0.0"
+
+dayjs-plugin-utc@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/dayjs-plugin-utc/-/dayjs-plugin-utc-0.1.2.tgz#48e552407024143922d6499a40f6c765f8c93d03"
+  integrity sha512-ExERH5o3oo6jFOdkvMP3gytTCQ9Ksi5PtylclJWghr7k7m3o2U5QrwtdiJkOxLOH4ghr0EKhpqGefzGz1VvVJg==
+
+dayjs@^1.8.16:
+  version "1.8.27"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.8.27.tgz#a8ae63ee990af28c05c430f0e160ae835a0fbbf8"
+  integrity sha512-Jpa2acjWIeOkg8KURUHICk0EqnEFSSF5eMEscsOgyJ92ZukXwmpmRkPSUka7KHSfbj5eKH30ieosYip+ky9emQ==
 
 debug@3.2.6, debug@^3.1.0:
   version "3.2.6"
