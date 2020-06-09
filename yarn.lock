@@ -550,10 +550,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.7.9.tgz#da0210f91096aa67138cf5afd04c4d629f8a406a"
   integrity sha512-P57oKTJ/vYivL2BCfxCC5tQjlS8qW31pbOL6qt99Yrjm95YdHgNZwjrTTjMBh+C2/y6PXIX4oz253+jUzxKKfQ==
 
-"@types/node@13.13.11":
-  version "13.13.11"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.13.11.tgz#f8d2acb51f793bd5f4b07d9926bb5ce1dfb7a23e"
-  integrity sha512-FX7mIFKfnGCfq10DGWNhfCNxhACEeqH5uulT6wRRA1KEt7zgLe0HdrAd9/QQkObDqp2Z0KEV3OAmNgs0lTx5tQ==
+"@types/node@13.13.12":
+  version "13.13.12"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.13.12.tgz#9c72e865380a7dc99999ea0ef20fc9635b503d20"
+  integrity sha512-zWz/8NEPxoXNT9YyF2osqyA9WjssZukYpgI4UYZpOjcyqwIUqWGkcCionaEb9Ki+FULyPyvNFpg/329Kd2/pbw==
 
 "@types/sinon@*":
   version "7.5.0"
