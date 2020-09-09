@@ -11,7 +11,7 @@
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/errors": "^1",
-    "@salesforce/command": "3.0.1",
+    "@salesforce/command": "3.0.3",
     "@salesforce/core": "2.11.0",
     "tmp": "^0.2.1",
     "tslib": "^2"
