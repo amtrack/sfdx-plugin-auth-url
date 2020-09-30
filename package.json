@@ -67,7 +67,7 @@
   "repository": "amtrack/sfdx-plugin-auth-url",
   "scripts": {
     "format": "prettier --write '{src,test}/**/*.ts'",
-    "lint": "eslint '{src,test}/**/*.ts'",
+    "lint": "tsc -p . --noEmit && eslint '{src,test}/**/*.ts'",
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "yarn lint",
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
