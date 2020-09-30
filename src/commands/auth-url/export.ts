@@ -2,7 +2,7 @@ import { SfdxCommand } from '@salesforce/command';
 import { Messages } from '@salesforce/core';
 import { AnyJson } from '@salesforce/ts-types';
 import { promisify } from 'util';
-const child_process = require('child_process');
+import child_process = require('child_process');
 const exec = promisify(child_process.exec);
 
 // Initialize Messages with the current plugin directory
