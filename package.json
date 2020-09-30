@@ -24,12 +24,16 @@
     "@types/chai": "4.2.12",
     "@types/mocha": "8.0.3",
     "@types/node": "13.13.21",
+    "@typescript-eslint/eslint-plugin": "^4.3.0",
+    "@typescript-eslint/parser": "^4.3.0",
     "chai": "^4",
+    "eslint": "^7.10.0",
+    "eslint-config-prettier": "^6.12.0",
     "globby": "11.0.1",
     "mocha": "8.1.3",
     "nyc": "15.1.0",
-    "ts-node": "9.0.0",
-    "tslint": "6.1.3"
+    "prettier": "^2.1.2",
+    "ts-node": "9.0.0"
   },
   "engines": {
     "node": ">=8.0.0"
@@ -60,8 +64,10 @@
   },
   "repository": "amtrack/sfdx-plugin-auth-url",
   "scripts": {
+    "format": "prettier --write '{src,test}/**/*.ts'",
+    "lint": "eslint '{src,test}/**/*.ts'",
     "postpack": "rm -f oclif.manifest.json",
-    "posttest": "tslint -p test -t stylish",
+    "posttest": "yarn lint",
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
     "prepare": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",

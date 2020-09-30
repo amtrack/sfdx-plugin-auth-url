@@ -3,8 +3,8 @@ import { Messages } from '@salesforce/core';
 import { AnyJson } from '@salesforce/ts-types';
 import { promises as fsPromises } from 'fs';
 import { promisify } from 'util';
-const child_process = require('child_process');
-const tmp = require('tmp');
+import child_process = require('child_process');
+import tmp = require('tmp');
 const exec = promisify(child_process.exec);
 
 // Initialize Messages with the current plugin directory
@@ -66,7 +66,7 @@ export default class ImportOrgUsingAuthUrlCommand extends SfdxCommand {
     return {};
   }
 
-  public async finally() {
+  public async finally(): Promise<void> {
     if (this.tempObj) {
       this.tempObj.removeCallback();
     }
