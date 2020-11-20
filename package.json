@@ -35,7 +35,7 @@
     "nyc": "15.1.0",
     "prettier": "^2.2.0",
     "ts-node": "9.0.0",
-    "typescript": "^4.0.5"
+    "typescript": "^4.1.2"
   },
   "engines": {
     "node": ">=8.0.0"
