@@ -2,7 +2,7 @@
 
 > sfdx plugin for importing/exporting orgs using a Sfdx Auth Url
 
-[![Build Status](https://travis-ci.com/amtrack/sfdx-plugin-auth-url.svg?branch=master)](https://travis-ci.com/amtrack/sfdx-plugin-auth-url)
+[![Actions Status](https://github.com/amtrack/sfdx-plugin-auth-url/workflows/Test%20and%20Release/badge.svg)](https://github.com/amtrack/sfdx-plugin-auth-url/actions)
 
 This is a convenient wrapper for `sfdx force:org:display` and `sfdx force:auth:sfdxurl:store`.
 

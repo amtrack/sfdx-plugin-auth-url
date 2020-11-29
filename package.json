@@ -66,12 +66,13 @@
   },
   "repository": "amtrack/sfdx-plugin-auth-url",
   "scripts": {
+    "build": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
     "format": "prettier --write '{src,test}/**/*.ts'",
     "lint": "tsc -p . --noEmit && eslint '{src,test}/**/*.ts'",
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "yarn lint",
-    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
-    "prepare": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "prepack": "yarn build",
+    "prepare": "yarn build",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "oclif-dev readme && git add README.md"
   }
