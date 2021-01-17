@@ -62,7 +62,7 @@ export default class ImportOrgUsingAuthUrlCommand extends SfdxCommand {
     if (this.flags.setdefaultdevhubusername) {
       args.push('--setdefaultdevhubusername');
     }
-    await exec(`sfdx force:auth:sfdxurl:store ${args.join(' ')}`);
+    await exec(`sfdx auth:sfdxurl:store ${args.join(' ')}`);
     return {};
   }
 
