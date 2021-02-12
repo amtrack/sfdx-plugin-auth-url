@@ -1,5 +1,4 @@
-import { flags, SfdxCommand } from '@salesforce/command';
-import { Messages } from '@salesforce/core';
+import { core, flags, SfdxCommand } from '@salesforce/command';
 import { AnyJson } from '@salesforce/ts-types';
 import { promises as fsPromises } from 'fs';
 import { promisify } from 'util';
@@ -8,11 +7,11 @@ import tmp = require('tmp');
 const exec = promisify(child_process.exec);
 
 // Initialize Messages with the current plugin directory
-Messages.importMessagesDirectory(__dirname);
+core.Messages.importMessagesDirectory(__dirname);
 
 // Load the specific messages for this file. Messages from @salesforce/command, @salesforce/core,
 // or any library that is using the messages framework can also be loaded this way.
-const messages = Messages.loadMessages('sfdx-plugin-auth-url', 'import');
+const messages = core.Messages.loadMessages('sfdx-plugin-auth-url', 'import');
 
 export default class ImportOrgUsingAuthUrlCommand extends SfdxCommand {
   public static description = messages.getMessage('commandDescription');
