@@ -1,5 +1,5 @@
 import { core, flags, SfdxCommand } from '@salesforce/command';
-import { AnyJson } from '@salesforce/ts-types';
+import type { AnyJson } from '@salesforce/ts-types';
 import { promises as fsPromises } from 'fs';
 import { promisify } from 'util';
 import child_process = require('child_process');

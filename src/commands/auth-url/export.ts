@@ -1,5 +1,5 @@
 import { core, SfdxCommand } from '@salesforce/command';
-import { AnyJson } from '@salesforce/ts-types';
+import type { AnyJson } from '@salesforce/ts-types';
 import { promisify } from 'util';
 import child_process = require('child_process');
 const exec = promisify(child_process.exec);
