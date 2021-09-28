@@ -22,7 +22,7 @@
     "@salesforce/dev-config": "2.1.0",
     "@salesforce/ts-types": "^1.5.0",
     "@types/chai": "4.2.15",
-    "@types/mocha": "8.2.2",
+    "@types/mocha": "8.2.3",
     "@types/node": "13.13.42",
     "@typescript-eslint/eslint-plugin": "^4.15.1",
     "@typescript-eslint/parser": "^4.15.1",
