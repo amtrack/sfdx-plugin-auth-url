@@ -28,7 +28,7 @@
     "@typescript-eslint/parser": "^4.15.1",
     "chai": "^4",
     "eslint": "^7.20.0",
-    "eslint-config-prettier": "^8.2.0",
+    "eslint-config-prettier": "^8.5.0",
     "mocha": "9.0.1",
     "nyc": "15.1.0",
     "prettier": "^2.2.1",
