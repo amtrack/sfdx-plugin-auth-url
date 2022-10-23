@@ -1,23 +1,18 @@
-import { core, flags, SfdxCommand } from '@salesforce/command';
+import { flags, SfdxCommand } from '@salesforce/command';
 import type { AnyJson } from '@salesforce/ts-types';
 import { promises as fsPromises } from 'fs';
+import type { FileResult } from 'tmp';
 import { promisify } from 'util';
 import child_process = require('child_process');
 import tmp = require('tmp');
 const exec = promisify(child_process.exec);
 
-// Initialize Messages with the current plugin directory
-core.Messages.importMessagesDirectory(__dirname);
-
-// Load the specific messages for this file. Messages from @salesforce/command, @salesforce/core,
-// or any library that is using the messages framework can also be loaded this way.
-const messages = core.Messages.loadMessages('sfdx-plugin-auth-url', 'import');
-
 export default class ImportOrgUsingAuthUrlCommand extends SfdxCommand {
-  public static description = messages.getMessage('commandDescription');
+  public static description =
+    'Authorize an org.\nThis is a wrapper for sfdx auth:sfdxurl:store without requiring a sfdxAuthUrl file.';
 
   public static examples = [
-    '$ sfdx auth-url:import --setalias myOrg force://PlatformCLI::xxx@amazing-cloudy-374844.my.salesforce.com'
+    '$ sfdx <%= command.id %> --setalias myOrg force://PlatformCLI::xxx@amazing-cloudy-374844.my.salesforce.com'
   ];
 
   public static args = [
@@ -43,7 +38,7 @@ export default class ImportOrgUsingAuthUrlCommand extends SfdxCommand {
     })
   };
 
-  protected tempObj;
+  protected tempObj!: FileResult;
 
   public async run(): Promise<AnyJson> {
     this.tempObj = tmp.fileSync();

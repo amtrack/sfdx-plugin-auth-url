@@ -1,3 +1,0 @@
-{
-  "commandDescription": "Print a Sfdx Auth Url.\nThis is a wrapper for sfdx force:org:display --verbose."
-}
