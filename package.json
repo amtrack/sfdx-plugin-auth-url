@@ -8,42 +8,29 @@
     "sfdx-plugin-auth-url": "bin/run"
   },
   "dependencies": {
-    "@oclif/command": "^1",
-    "@oclif/config": "^1",
-    "@oclif/errors": "^1",
-    "@salesforce/command": "3.1.0",
-    "tmp": "^0.2.1",
-    "tslib": "^2"
+    "@salesforce/command": "5.2.16",
+    "tmp": "0.2.1",
+    "tslib": "2.4.0"
   },
   "devDependencies": {
-    "@oclif/dev-cli": "^1",
-    "@oclif/plugin-help": "3.2.2",
-    "@oclif/test": "^1",
-    "@salesforce/dev-config": "2.1.0",
-    "@salesforce/ts-types": "^1.5.0",
-    "@types/chai": "4.2.15",
-    "@types/mocha": "8.2.2",
-    "@types/node": "13.13.42",
-    "@typescript-eslint/eslint-plugin": "^4.15.1",
-    "@typescript-eslint/parser": "^4.15.1",
-    "chai": "^4",
-    "eslint": "^7.20.0",
-    "eslint-config-prettier": "^8.2.0",
-    "mocha": "9.0.1",
+    "@oclif/test": "2.2.6",
+    "@salesforce/ts-sinon": "1.4.1",
+    "@types/mocha": "10.0.0",
+    "@types/tmp": "0.2.3",
+    "chai": "4.3.6",
+    "mocha": "10.1.0",
     "nyc": "15.1.0",
-    "prettier": "^2.2.1",
-    "ts-node": "9.1.1",
-    "typescript": "^4.2.4"
+    "oclif": "3.2.21",
+    "ts-node": "10.9.1",
+    "typescript": "4.8.4"
   },
   "engines": {
-    "node": ">=v8.17.0"
+    "node": ">=14.16"
   },
   "files": [
     "/bin",
     "/lib",
-    "/messages",
-    "/oclif.manifest.json",
-    "/yarn.lock"
+    "/oclif.manifest.json"
   ],
   "homepage": "https://github.com/amtrack/sfdx-plugin-auth-url",
   "keywords": [
@@ -58,20 +45,15 @@
         "description": "Commands for importing/exporting orgs using a Sfdx Auth Url."
       }
     },
-    "devPlugins": [
-      "@oclif/plugin-help"
+    "additionalHelpFlags": [
+      "-h"
     ]
   },
   "repository": "amtrack/sfdx-plugin-auth-url",
   "scripts": {
-    "build": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
-    "format": "prettier --write '{src,test}/**/*.ts'",
-    "lint": "tsc -p . --noEmit && eslint '{src,test}/**/*.ts'",
-    "postpack": "rm -f oclif.manifest.json",
-    "posttest": "yarn lint",
+    "build": "rm -rf lib && tsc -p . && oclif manifest",
     "prepack": "yarn build",
     "prepare": "yarn build",
-    "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
-    "version": "oclif-dev readme && git add README.md"
+    "test": "nyc --reporter=lcov --reporter=text mocha --require ts-node/register \"test/**/*.test.ts\""
   }
 }

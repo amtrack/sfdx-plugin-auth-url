@@ -1,8 +1,16 @@
-*-debug.log
-*-error.log
-/.nyc_output
-/dist
-/lib
-/package-lock.json
-/tmp
-node_modules
+# Node.js
+/node_modules/
+
+# TypeScript
+/lib/
+
+# Testing
+/.nyc_output/
+/coverage/
+
+# oclif
+/oclif.manifest.json
+
+# Salesforce DX
+/.sfdx/
+/.sf/
