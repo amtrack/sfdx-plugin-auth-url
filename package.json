@@ -10,7 +10,7 @@
   "dependencies": {
     "@salesforce/command": "5.2.16",
     "tmp": "0.2.1",
-    "tslib": "2.4.0"
+    "tslib": "2.5.0"
   },
   "devDependencies": {
     "@oclif/test": "2.3.19",
