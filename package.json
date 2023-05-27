@@ -8,7 +8,7 @@
     "sfdx-plugin-auth-url": "bin/run"
   },
   "dependencies": {
-    "@salesforce/command": "5.3.8",
+    "@salesforce/command": "5.3.9",
     "tmp": "0.2.1",
     "tslib": "2.5.0"
   },
