@@ -1,5 +1,5 @@
-import { flags, SfdxCommand } from '@salesforce/command';
-import type { AnyJson } from '@salesforce/ts-types';
+import { Args } from '@oclif/core';
+import { Flags, SfCommand } from '@salesforce/sf-plugins-core';
 import { promises as fsPromises } from 'fs';
 import type { FileResult } from 'tmp';
 import { promisify } from 'util';
@@ -7,31 +7,29 @@ import child_process = require('child_process');
 import tmp = require('tmp');
 const exec = promisify(child_process.exec);
 
-export default class ImportOrgUsingAuthUrlCommand extends SfdxCommand {
+export class ImportOrgUsingAuthUrlCommand extends SfCommand<void> {
   public static description =
     'Authorize an org.\nThis is a wrapper for sfdx auth:sfdxurl:store without requiring a sfdxAuthUrl file.';
 
   public static examples = [
-    '$ sfdx <%= command.id %> --setalias myOrg force://PlatformCLI::xxx@amazing-cloudy-374844.my.salesforce.com'
+    '$ <%= config.bin %> <%= command.id %> --setalias myOrg force://PlatformCLI::xxx@amazing-cloudy-374844.my.salesforce.com'
   ];
 
-  public static args = [
-    {
-      name: 'sfdxAuthUrl'
-    }
-  ];
+  public static readonly args = {
+    sfdxAuthUrl: Args.string()
+  };
 
-  protected static flagsConfig = {
-    setalias: flags.string({
+  public static readonly flags = {
+    setalias: Flags.string({
       description: 'set an alias for the authenticated org',
       char: 'a'
     }),
-    setdefaultdevhubusername: flags.boolean({
+    setdefaultdevhubusername: Flags.boolean({
       description:
         'set the authenticated org as the default dev hub org for scratch org creation',
       char: 'd'
     }),
-    setdefaultusername: flags.boolean({
+    setdefaultusername: Flags.boolean({
       description:
         'set the authenticated org as the default username that all commands run against',
       char: 's'
@@ -40,24 +38,27 @@ export default class ImportOrgUsingAuthUrlCommand extends SfdxCommand {
 
   protected tempObj!: FileResult;
 
-  public async run(): Promise<AnyJson> {
+  public async run(): Promise<void> {
+    const { flags, args } = await this.parse(ImportOrgUsingAuthUrlCommand);
     this.tempObj = tmp.fileSync();
     const sfdxAuthUrlFile = this.tempObj.name;
-    const sfdxAuthUrl = this.args.sfdxAuthUrl;
+    if (!args.sfdxAuthUrl) {
+      throw new Error("missing argument sfdxAuthUrl");
+    }
+    const sfdxAuthUrl = args.sfdxAuthUrl;
     await fsPromises.writeFile(sfdxAuthUrlFile, sfdxAuthUrl);
 
-    const args = ['--sfdxurlfile', sfdxAuthUrlFile];
-    if (this.flags.setalias) {
-      args.push(...['--setalias', this.flags.setalias]);
+    const orgLoginArgs = ['--sfdxurlfile', sfdxAuthUrlFile];
+    if (flags.setalias) {
+      orgLoginArgs.push(...['--setalias', flags.setalias]);
     }
-    if (this.flags.setdefaultusername) {
-      args.push('--setdefaultusername');
+    if (flags.setdefaultusername) {
+      orgLoginArgs.push('--setdefaultusername');
     }
-    if (this.flags.setdefaultdevhubusername) {
-      args.push('--setdefaultdevhubusername');
+    if (flags.setdefaultdevhubusername) {
+      orgLoginArgs.push('--setdefaultdevhubusername');
     }
-    await exec(`sfdx auth:sfdxurl:store ${args.join(' ')}`);
-    return {};
+    await exec(`sfdx auth:sfdxurl:store ${orgLoginArgs.join(' ')}`);
   }
 
   public async finally(): Promise<void> {
