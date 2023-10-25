@@ -12,7 +12,7 @@
     "tmp": "0.2.1"
   },
   "devDependencies": {
-    "@salesforce/dev-config": "4.0.1",
+    "@salesforce/dev-config": "4.1.0",
     "@salesforce/prettier-config": "0.0.3",
     "@types/tmp": "0.2.5",
     "oclif": "4.0.3",
