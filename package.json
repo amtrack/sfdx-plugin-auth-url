@@ -14,7 +14,7 @@
   "devDependencies": {
     "@salesforce/dev-config": "4.1.0",
     "@salesforce/prettier-config": "0.0.3",
-    "@types/tmp": "0.2.5",
+    "@types/tmp": "0.2.6",
     "oclif": "4.0.3",
     "prettier": "3.0.3",
     "ts-node": "10.9.1",
