@@ -8,7 +8,7 @@
     "sfdx-plugin-auth-url": "bin/run"
   },
   "dependencies": {
-    "@salesforce/sf-plugins-core": "4.0.0",
+    "@salesforce/sf-plugins-core": "7.1.14",
     "tmp": "0.2.1"
   },
   "devDependencies": {
